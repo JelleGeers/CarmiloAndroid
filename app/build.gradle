@@ -13,6 +13,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        //nodig voor de dependency Auth0, zodat hij connectie kan maken
+        manifestPlaceholders = [auth0Domain: "@string/com_auth0_domain", auth0Scheme: "carmilo"]
     }
     buildTypes {
         release {
@@ -23,6 +26,9 @@ android {
 }
 
 dependencies {
+    //Dependency voor Auth0 login credentials
+    compile 'com.auth0.android:auth0:1.+'
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:28.0.0'
