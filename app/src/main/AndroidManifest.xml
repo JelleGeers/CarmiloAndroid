@@ -12,13 +12,14 @@
             android:theme="@style/AppTheme"
             tools:ignore="AllowBackup">
 
-        <activity android:name="com.example.carmiloandroid.LoginActivity">
+        <activity android:name="com.example.carmiloandroid.Activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.example.carmiloandroid.MainActivity"/>
+        <activity android:name="com.example.carmiloandroid.Activities.MainActivity"/>
+        <activity android:name="com.example.carmiloandroid.Activities.MainActivityNavigation"/>
     </application>
 
 </manifest>

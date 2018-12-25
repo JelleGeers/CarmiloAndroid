@@ -1,4 +1,4 @@
-package com.example.carmiloandroid
+package com.example.carmiloandroid.Activities
 
 
 import android.annotation.SuppressLint
@@ -19,6 +19,7 @@ import com.auth0.android.callback.BaseCallback
 import com.auth0.android.provider.AuthCallback
 import com.auth0.android.provider.WebAuthProvider
 import com.auth0.android.result.Credentials
+import com.example.carmiloandroid.R
 
 class LoginActivity : AppCompatActivity() {
 
