@@ -1,7 +1,7 @@
 package com.example.carmiloandroid.Activities
 
 import android.os.Bundle
-import HomeFragment
+import AllRidesUserFragment
 import AllRidesFragment
 import AddRideFragment
 import android.support.design.widget.BottomNavigationView
@@ -24,17 +24,17 @@ class MainActivityNavigation : AppCompatActivity() {
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction().replace(
                 R.id.fragment_container,
-                HomeFragment()
+                AllRidesUserFragment()
             ).commit()
         }
     }
 
     private val navListener = object : BottomNavigationView.OnNavigationItemSelectedListener {
         override fun onNavigationItemSelected(item: MenuItem): Boolean {
-            var selectedFragment: Fragment? = HomeFragment()
+            var selectedFragment: Fragment? = AllRidesFragment()
 
             when (item.getItemId()) {
-                R.id.nav_home -> selectedFragment = HomeFragment()
+                R.id.nav_home -> selectedFragment = AllRidesUserFragment()
                 R.id.nav_allRides -> selectedFragment = AllRidesFragment()
                 R.id.nav_addRide -> selectedFragment = AddRideFragment()
             }
