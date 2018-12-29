@@ -16,8 +16,8 @@ class Ride : Serializable{
     @SerializedName("date")
     var date: String
 
-    @SerializedName("passenger")
-    var passenger: ArrayList<Passenger>
+    @SerializedName("passengers")
+    var passengers: ArrayList<Passenger>
 
     @SerializedName("address")
     var address: Address
@@ -26,12 +26,11 @@ class Ride : Serializable{
     var maxPassengers: String
 
 
-
-    constructor(_id:String,departure:String, date:String, passenger:ArrayList<Passenger>, address:Address, maxPassengers:String){
+    constructor(_id:String,departure:String, date:String, passengers:ArrayList<Passenger>, address:Address, maxPassengers:String){
         this._id=_id
         this.departure=departure
         this.date=date
-        this.passenger=passenger
+        this.passengers=passengers
         this.address=address
         this.maxPassengers=maxPassengers
 

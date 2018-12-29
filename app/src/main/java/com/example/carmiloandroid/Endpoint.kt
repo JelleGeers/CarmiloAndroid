@@ -16,4 +16,6 @@ interface Endpoint {
     @GET("/API/rides/")
     fun getRides(): Observable<ArrayList<User>>
 
+    @GET("/API/rides/{userID}/rides")
+    fun getRidesUser(@Path("userID")userID:String): Observable<ArrayList<Ride>>
 }
