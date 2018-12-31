@@ -7,6 +7,7 @@ import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import com.auth0.android.Auth0
@@ -32,6 +33,8 @@ class LoginActivity : AppCompatActivity() {
         }
 
         override fun onFailure(exception: AuthenticationException) {
+            Log.d("error",exception.stackTrace.toString())
+            Log.d("errorcode",exception.code)
             runOnUiThread { Toast.makeText(this@LoginActivity, "Log In - Error Occurred", Toast.LENGTH_SHORT).show() }
         }
 
