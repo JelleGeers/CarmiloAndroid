@@ -8,7 +8,11 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import android.widget.Button
+import com.example.carmiloandroid.Endpoint
 import com.example.carmiloandroid.R
+import com.example.carmiloandroid.RetrofitClientInstance
+import kotlinx.android.synthetic.main.fragment_add_ride.*
 
 
 class MainActivityNavigation : AppCompatActivity() {

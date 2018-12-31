@@ -1,14 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
+                xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 >
-    <TextView
+
+    <Button
+            android:text="Add Ride"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true" android:id="@+id/btnAddRide" android:layout_marginBottom="33dp"/>
+    <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add Ride Fragment"
-            android:textSize="30sp"
-            android:layout_centerInParent="true"
-    />
-
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_centerHorizontal="true" android:layout_alignParentTop="true" android:id="@+id/txtDeparture"
+            android:layout_marginTop="34dp" android:hint="Departure"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_centerHorizontal="true" android:layout_alignParentTop="true" android:id="@+id/txtDate"
+            android:layout_marginTop="97dp" android:hint="Date"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_alignParentTop="true" android:id="@+id/txtStreet" android:layout_marginTop="153dp"
+            android:layout_alignStart="@+id/txtDeparture" android:hint="Street"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_centerHorizontal="true" android:layout_alignParentTop="true" android:id="@+id/txtHouseNr"
+            android:layout_marginTop="215dp" android:hint="HouseNr"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_alignParentBottom="true" android:id="@+id/txtZipcode"
+            android:layout_alignStart="@+id/txtDeparture" android:layout_marginBottom="190dp" android:hint="Zipcode"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_centerHorizontal="true" android:layout_alignParentBottom="true"
+            android:id="@+id/txtMaxPassengers"
+            android:layout_marginBottom="126dp" android:hint="MaxPassengers"/>
 </RelativeLayout>
