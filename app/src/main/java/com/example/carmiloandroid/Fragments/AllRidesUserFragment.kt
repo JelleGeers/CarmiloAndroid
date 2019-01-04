@@ -21,6 +21,7 @@ class AllRidesUserFragment : Fragment() {
         val binding: FragmentAllRidesUserBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_all_rides_user,container,false)
         val view=binding.root
         viewModel= ViewModelProviders.of(activity!!).get(RideUserViewModel::class.java)
+        viewModel.refresh()
         binding.rideUserViewModel = viewModel
         binding.setLifecycleOwner(activity)
         view.rvRidesUser.layoutManager = LinearLayoutManager(this.context)

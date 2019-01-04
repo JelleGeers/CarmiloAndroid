@@ -14,30 +14,10 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
 class RideUserViewModel() : ViewModel() {
-    private var rideUserAdapter : RideUserAdapter
+    private lateinit var rideUserAdapter : RideUserAdapter
     private val ridesUserList = MutableLiveData <ArrayList<Ride>>()
-    private var subscription : Disposable
+    private lateinit var subscription : Disposable
     val isLoading = MutableLiveData<Boolean>()
-
-    init {
-        ridesUserList.value = ArrayList()
-        rideUserAdapter = RideUserAdapter(ridesUserList.value!!)
-        //subscriptions initializen
-        val service = RetrofitClientInstance().getRetrofitInstance()!!.create(Endpoint::class.java)
-        subscription = service.getRidesUser("5c2a4667a28066218c99160b")
-            //we tell it to fetch the data on background by
-            .subscribeOn(Schedulers.io())
-            //we like the fetched data to be displayed on the MainTread (UI)
-            .observeOn(AndroidSchedulers.mainThread())
-            .doOnSubscribe { onRetrieveCarmiloStart() }
-            .doOnTerminate { onRetrieveCarmiloFinish() }
-            .subscribe(
-                { result -> onRetrieveCarmiloSucces(result) },
-                { error -> onRetrieveCarmiloError(error) }
-            )
-
-    }
-
 
     fun getRideUserAdapter(): RideUserAdapter {
 
@@ -63,5 +43,23 @@ class RideUserViewModel() : ViewModel() {
     private fun onRetrieveCarmiloStart() {
         Logger.i("Started retrieving Carmilo info")
         isLoading.value = true
+    }
+
+    fun refresh(){
+        ridesUserList.value = ArrayList()
+        rideUserAdapter = RideUserAdapter(ridesUserList.value!!)
+        //subscriptions initializen
+        val service = RetrofitClientInstance().getRetrofitInstance()!!.create(Endpoint::class.java)
+        subscription = service.getRidesUser("5c2a4667a28066218c99160b")
+            //we tell it to fetch the data on background by
+            .subscribeOn(Schedulers.io())
+            //we like the fetched data to be displayed on the MainTread (UI)
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { onRetrieveCarmiloStart() }
+            .doOnTerminate { onRetrieveCarmiloFinish() }
+            .subscribe(
+                { result -> onRetrieveCarmiloSucces(result) },
+                { error -> onRetrieveCarmiloError(error) }
+            )
     }
 }
