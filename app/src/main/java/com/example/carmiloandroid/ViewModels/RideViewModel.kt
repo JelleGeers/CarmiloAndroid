@@ -12,28 +12,13 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
 class RideViewModel() : ViewModel() {
-    private var rideAdapter : RideAdapter
+    private lateinit var rideAdapter : RideAdapter
     private val ridesList = MutableLiveData <ArrayList<User>>()
-    private var subscription : Disposable
+    private lateinit var subscription : Disposable
     val isLoading = MutableLiveData<Boolean>()
 
     init {
-        ridesList.value = ArrayList()
-        rideAdapter = RideAdapter(ridesList.value!!)
-        //subscriptions initializen
-        val service = RetrofitClientInstance().getRetrofitInstance()!!.create(Endpoint::class.java)
-        subscription = service.getRides()
-            //we tell it to fetch the data on background by
-            .subscribeOn(Schedulers.io())
-            //we like the fetched data to be displayed on the MainTread (UI)
-            .observeOn(AndroidSchedulers.mainThread())
-            .doOnSubscribe { onRetrieveCarmiloStart() }
-            .doOnTerminate { onRetrieveCarmiloFinish() }
-            .subscribe(
-                { result -> onRetrieveCarmiloSucces(result) },
-                { error -> onRetrieveCarmiloError(error) }
-            )
-
+       refresh()
     }
 
     fun getRideAdapter(): RideAdapter {
@@ -59,5 +44,24 @@ class RideViewModel() : ViewModel() {
     private fun onRetrieveCarmiloStart() {
         Logger.i("Started retrieving Carmilo info")
         isLoading.value = true
+    }
+
+    fun refresh(){
+        ridesList.value = ArrayList()
+        rideAdapter = RideAdapter(ridesList.value!!)
+        //subscriptions initializen
+        val service = RetrofitClientInstance().getRetrofitInstance()!!.create(Endpoint::class.java)
+        subscription = service.getRides()
+            //we tell it to fetch the data on background by
+            .subscribeOn(Schedulers.io())
+            //we like the fetched data to be displayed on the MainTread (UI)
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { onRetrieveCarmiloStart() }
+            .doOnTerminate { onRetrieveCarmiloFinish() }
+            .subscribe(
+                { result -> onRetrieveCarmiloSucces(result) },
+                { error -> onRetrieveCarmiloError(error) }
+            )
+
     }
 }

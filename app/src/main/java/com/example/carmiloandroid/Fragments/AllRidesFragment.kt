@@ -17,10 +17,12 @@ private lateinit var viewModel: RideViewModel
         val binding:FragmentAllRidesBinding= DataBindingUtil.inflate(inflater, R.layout.fragment_all_rides,container,false)
         val view=binding.root
         viewModel= ViewModelProviders.of(activity!!).get(RideViewModel::class.java)
+        viewModel.refresh()
         binding.rideViewModel = viewModel
         binding.setLifecycleOwner(activity)
         view.rvRides.layoutManager = LinearLayoutManager(this.context)
         view.rvRides.adapter = viewModel.getRideAdapter()
         return view
     }
+
 }
