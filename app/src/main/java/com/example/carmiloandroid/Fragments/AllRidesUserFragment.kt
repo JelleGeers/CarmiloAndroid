@@ -4,6 +4,7 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
+import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import com.example.carmiloandroid.R
 import com.example.carmiloandroid.ViewModels.RideUserViewModel
 import com.example.carmiloandroid.ViewModels.RideViewModel
 import com.example.carmiloandroid.databinding.FragmentAllRidesUserBinding
+import kotlinx.android.synthetic.main.design_bottom_sheet_dialog.*
 import kotlinx.android.synthetic.main.fragment_all_rides_user.view.*
 
 class AllRidesUserFragment : Fragment() {
@@ -25,4 +27,5 @@ class AllRidesUserFragment : Fragment() {
         view.rvRidesUser.adapter = viewModel.getRideUserAdapter()
         return view
     }
+
 }

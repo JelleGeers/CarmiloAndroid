@@ -7,8 +7,11 @@
     <Button
             android:text="Add Ride"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true" android:id="@+id/btnAddRide" android:layout_marginBottom="33dp"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/btnAddRide"
+            android:layout_alignParentStart="true" android:layout_marginStart="148dp"
+            android:layout_marginTop="430dp"
+            android:layout_alignParentTop="true"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -29,7 +32,8 @@
             android:inputType="textPersonName"
             android:ems="10"
             android:layout_alignParentTop="true" android:id="@+id/txtStreet" android:layout_marginTop="153dp"
-            android:layout_alignStart="@+id/txtDeparture" android:hint="Street"/>
+            android:hint="Street" android:layout_alignParentStart="true" android:layout_marginStart="85dp"
+            android:layout_alignParentEnd="true" android:layout_marginEnd="84dp"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,7 +47,9 @@
             android:inputType="textPersonName"
             android:ems="10"
             android:layout_alignParentBottom="true" android:id="@+id/txtZipcode"
-            android:layout_alignStart="@+id/txtDeparture" android:layout_marginBottom="190dp" android:hint="Zipcode"/>
+            android:layout_marginBottom="190dp" android:hint="Zipcode" android:layout_alignParentStart="true"
+            android:layout_marginStart="85dp" android:layout_alignParentEnd="true" android:layout_marginEnd="84dp"
+            android:layout_marginTop="276dp" android:layout_alignParentTop="true"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -51,5 +57,6 @@
             android:ems="10"
             android:layout_centerHorizontal="true" android:layout_alignParentBottom="true"
             android:id="@+id/txtMaxPassengers"
-            android:layout_marginBottom="126dp" android:hint="MaxPassengers"/>
+            android:layout_marginBottom="126dp" android:hint="MaxPassengers" android:layout_marginTop="340dp"
+            android:layout_alignParentTop="true"/>
 </RelativeLayout>
