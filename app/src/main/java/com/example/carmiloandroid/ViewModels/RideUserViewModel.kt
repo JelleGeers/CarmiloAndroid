@@ -24,7 +24,7 @@ class RideUserViewModel() : ViewModel() {
         rideUserAdapter = RideUserAdapter(ridesUserList.value!!)
         //subscriptions initializen
         val service = RetrofitClientInstance().getRetrofitInstance()!!.create(Endpoint::class.java)
-        subscription = service.getRidesUser("5c250c3118904c2674144202")
+        subscription = service.getRidesUser("5c2a4667a28066218c99160b")
             //we tell it to fetch the data on background by
             .subscribeOn(Schedulers.io())
             //we like the fetched data to be displayed on the MainTread (UI)
@@ -38,7 +38,9 @@ class RideUserViewModel() : ViewModel() {
 
     }
 
+
     fun getRideUserAdapter(): RideUserAdapter {
+
         return rideUserAdapter
     }
 

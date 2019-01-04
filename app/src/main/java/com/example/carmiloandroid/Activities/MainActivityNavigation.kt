@@ -5,6 +5,7 @@ import AllRidesUserFragment
 import AllRidesFragment
 import AddRideFragment
 import android.support.design.widget.BottomNavigationView
+import android.support.test.espresso.idling.CountingIdlingResource
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
@@ -16,6 +17,13 @@ import kotlinx.android.synthetic.main.fragment_add_ride.*
 
 
 class MainActivityNavigation : AppCompatActivity() {
+
+    //Idling is nodig voor het testen zodat de server wacht tot de data is opgehaald uit de backend
+    private val idlingResource= CountingIdlingResource("Navigation");
+
+    fun getIdlingResourceInTest(): CountingIdlingResource {
+        return idlingResource
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,12 +50,13 @@ class MainActivityNavigation : AppCompatActivity() {
                 R.id.nav_allRides -> selectedFragment = AllRidesFragment()
                 R.id.nav_addRide -> selectedFragment = AddRideFragment()
             }
-
+            //Wachten tot de server de data heeft opgehaald
+            idlingResource.increment()
             supportFragmentManager.beginTransaction().replace(
                 R.id.fragment_container,
                 selectedFragment!!
             ).commit()
-
+            idlingResource.decrement()
             return true
         }
     }
